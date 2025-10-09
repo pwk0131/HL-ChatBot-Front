@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Header from '../components/common/Header';
 import Sidemenu from '../components/common/Sidemenu';
-import Footer from '../components/common/Footer';
+// import Footer from '../components/common/Footer';
 import { Outlet } from 'react-router-dom';
 
 import styles from './MainLayout.module.css';
@@ -28,7 +28,7 @@ const MainLayout = () => {
         <main className={styles.main}>
           <Outlet />
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

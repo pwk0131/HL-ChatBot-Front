@@ -1,12 +1,25 @@
 
+@keyframes poofIn {
+  /* 애니메이션 시작 시점: 완전히 투명 */
+  0% {
+    opacity: 0;
+    transform: scale(0.9); /* 살짝 작아졌다가 커지는 효과 */
+  }
+  /* 애니메이션 종료 시점: 완전히 불투명 */
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .sidebar {
   background-color: #f0f4f9;
-  border-right: 1px solid #dee2e6;
+  border-right: 0.5px solid #dee2e6;
 
   display: flex;
   flex-direction: column;
 
-  transition: width 0.3s ease-in-out; /* 너비 변경 시 애니메이션 효과 */
+  transition: width 0.2s ease-in-out; /* 너비 변경 시 애니메이션 효과 */
 }
 
 /* 펼쳐졌을 때의 너비 */
@@ -57,7 +70,7 @@
 }
 
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-right: 1rem;
 }
 
@@ -77,14 +90,28 @@
 /* 접혔을 때 메뉴 텍스트를 투명하게 만듦 */
 .collapsed .text {
   opacity: 0;
+  width: 0;
 }
 
 .collapsed .nav a {
   padding: 0.75rem 0;
+  justify-content: center;
 }
 
 .collapsed .icon {
   margin-right: 0;
+  opacity: 0;
+  animation: poofIn 0.3s forwards;
+  animation-delay: 0.2s;
+
+}
+
+.expanded .icon {
+  opacity: 1;
+}
+
+.expanded .icon {
+  opacity: 1;
 }
 
 /* 접혔을 때 구분선 숨기기 */
@@ -144,4 +171,25 @@
   height: 2px; /* 각 바의 높이 */
   background-color: #333; /* 바의 색상 */
   border-radius: 1px;
+}
+
+.testServerActive {
+  background-color: #d1f7c4; /* 연한 초록색 배경 */
+  font-weight: bold;
+  color: #1a5302; /* 진한 초록색 텍스트 */
+}
+
+.nav a, .navLink {
+  display: flex;
+  align-items: center;
+  /* ... 나머지 스타일은 동일 */
+}
+
+.nav a:hover, .navLink:hover {
+  background-color: #e9ecef;
+}
+
+/* 활성화된 테스트 서버 메뉴는 호버해도 색이 변하지 않도록 합니다. */
+.testServerActive:hover {
+  background-color: #d1f7c4;
 }

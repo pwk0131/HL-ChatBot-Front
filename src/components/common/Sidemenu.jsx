@@ -2,7 +2,12 @@
 
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { PiRobotBold } from "react-icons/pi";
+import { BiTestTube } from "react-icons/bi";
+
+
 import styles from '../styles/Sidemenu.module.css';
+
 
 // isExpanded와 onToggle 함수를 props로 받음
 const Sidemenu = ({ isExpanded, onToggle }) => {
@@ -52,12 +57,12 @@ const Sidemenu = ({ isExpanded, onToggle }) => {
           {/* 윗쪽 그룹 */}
           <li>
             <NavLink to="/chatbot"> {/* 경로는 예시입니다 */}
-              <span className={styles.text}>챗봇으로 가기</span>
+              <PiRobotBold className={styles.icon} /> <span className={styles.text}>챗봇으로 가기 </span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/test-server"> {/* 경로는 예시입니다 */}
-              <span className={styles.text}>테스트 서버</span>
+              <BiTestTube className={styles.icon} /> <span className={styles.text}>테스트 서버</span>
             </NavLink>
           </li>
 
