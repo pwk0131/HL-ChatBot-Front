@@ -6,10 +6,12 @@
  <tr>
     <td align="center"><a href="https://github.com/pwk0131"><img src="https://avatars.githubusercontent.com/pwk0131" width="200px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/jiman0919"><img src="https://avatars.githubusercontent.com/jiman0919" width="200px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/Unyuwaffle"><img src="https://avatars.githubusercontent.com/Unyuwaffle" width="200px;" alt=""></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/dryflowery"><b>박웅기</b></a></td>
-    <td align="center"><a href="https://github.com/deokh01"><b>이지만</b></a></td>
+    <td align="center"><a href="https://github.com/pwk0131"><b>박웅기</b></a></td>
+    <td align="center"><a href="https://github.com/jiman0919"><b>이지만</b></a></td>
+    <td align="center"><a href="https://github.com/Unyuwaffle"><b>김범섭</b></a></td>
   </tr>
 </table>
 
