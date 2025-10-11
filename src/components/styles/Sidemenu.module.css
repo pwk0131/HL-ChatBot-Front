@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
 
-  transition: width 0.2s ease-in-out; /* 너비 변경 시 애니메이션 효과 */
+  transition: width 0.3s ease-in-out; /* 너비 변경 시 애니메이션 효과 */
 }
 
 /* 펼쳐졌을 때의 너비 */
@@ -189,7 +189,6 @@
   background-color: #e9ecef;
 }
 
-/* 활성화된 테스트 서버 메뉴는 호버해도 색이 변하지 않도록 합니다. */
 .testServerActive:hover {
   background-color: #d1f7c4;
 }

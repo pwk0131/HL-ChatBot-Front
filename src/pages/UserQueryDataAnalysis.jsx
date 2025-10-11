@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react';
 import { getUserQueryData } from '../services/api';
 
-import global_styles from './PageLayout.module.css'; // 모든 페이지 공통 css
 import styles from './styles/UserQueryDataAnalysis.module.css'
 
 const UserQueryDataAnalysis = () => {
@@ -47,10 +46,10 @@ const UserQueryDataAnalysis = () => {
 
   return (
     // 1. 외부 컨테이너: 페이지 전체를 감싸고 중앙 정렬을 담당
-    <section className={global_styles.pageContainer}>
+    <section className={styles.pageContainer}>
       
       {/* 2. 내부 컨테이너: 실제 콘텐츠를 담고 최대 너비를 가짐 */}
-      <div className={global_styles.contentWrapper}>
+      <div className={styles.contentWrapper}>
         
         {/* 페이지 헤더: 제목과 버튼 등 */}
         <header className={styles.pageHeader}>
@@ -59,18 +58,11 @@ const UserQueryDataAnalysis = () => {
         </header>
 
         {/* 메인 콘텐츠 영역 */}
-        <div className={global_styles.mainContent}>
+        <div className={styles.mainContent}>
           {/* 여기에 차트, 테이블 등 데이터 관련 컴포넌트가 들어감. */}
-          <div className={global_styles.placeholder}>
-            {data ? (
-            <div className={styles.placeholder}>
-              <p>총 질의 수: {data.totalQueries}</p>
-              {/* 여기에 차트나 테이블 컴포넌트가 들어옵니다. */}
-            </div>
-          ) : (
-            <div>데이터가 없습니다.</div>
-          )}
-          </div>
+          
+          
+
         </div>
 
       </div>

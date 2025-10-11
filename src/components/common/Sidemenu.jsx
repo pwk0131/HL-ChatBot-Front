@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PiRobotBold } from "react-icons/pi";
-import { BiTestTube } from "react-icons/bi";
 
 
 import styles from '../styles/Sidemenu.module.css';
@@ -58,11 +57,6 @@ const Sidemenu = ({ isExpanded, onToggle }) => {
           <li>
             <NavLink to="/chatbot"> {/* 경로는 예시입니다 */}
               <PiRobotBold className={styles.icon} /> <span className={styles.text}>챗봇으로 가기 </span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/test-server"> {/* 경로는 예시입니다 */}
-              <BiTestTube className={styles.icon} /> <span className={styles.text}>테스트 서버</span>
             </NavLink>
           </li>
 
