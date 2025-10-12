@@ -1,0 +1,146 @@
+/* src/pages/styles/UsageCostlnquiry.module.css */
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+/* '총 사용 금액', '기간별 사용 금액' 등 메인 섹션의 제목 */
+.mainSectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+/* 개별 그래프 섹션 (소제목 + 그래프 카드) */
+.chartSection {
+  margin-bottom: 1.5rem;
+}
+
+.totalCostContainer {
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.totalCostContainer h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+.totalCostContainer p {
+  margin: 0;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+/* 기간별 그래프들을 감싸는 회색 배경의 컨테이너 */
+.filterableSection {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* 회색 컨테이너 안의 마지막 그래프는 하단 여백 제거 */
+.filterableSection .chartSection:last-of-type {
+  margin-bottom: 0;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* 버튼 공통 스타일 */
+.filterButton, .activeButton {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 기본 버튼 스타일 */
+.filterButton {
+  background-color: #fff;
+  color: #495057;
+}
+.filterButton:hover {
+  background-color: #f1f3f5;
+}
+
+/* 활성화된 버튼 스타일 */
+.activeButton {
+  background-color: #0070f3;
+  color: #fff;
+  border-color: #0070f3;
+  font-weight: 600;
+}
+
+/* 'LLM 토큰 비용' 등 그래프의 소제목 */
+.sectionTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #343a40;
+}
+
+/* 그래프를 감싸는 흰색 카드 */
+.graphCard {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* 카드 내 우측 상단 금액 */
+.graphValue {
+  margin: 0 0 1rem 0;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* 차트가 그려지는 영역 */
+.chartArea {
+  width: 100%;
+  height: 120px;
+}
+
+.chartSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lineChartPath {
+  stroke: #e03131;
+  stroke-width: 1.5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.lineChartFill {
+  fill: url(#lineChartGradient);
+}
