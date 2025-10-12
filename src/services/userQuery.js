@@ -10,15 +10,6 @@ import apiClient from './apiClient';
  */
 
 export const getUserQueryData = async (params) => {
-  const USE_MOCK_DATA = true;
-
-  if (USE_MOCK_DATA) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(getMockDataByPage(params.page, params.cnt));
-      }, 500);
-    });
-  }
 
   // ----------------------------------------------------
   // 나중에 백엔드가 완성되면 USE_MOCK_DATA를 false로 바꾸거나
