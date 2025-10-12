@@ -2,6 +2,7 @@
 // src/pages/UsageCostlnquiry.jsx
 
 import { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
 import styles from './styles/UsageCostlnquiry.module.css';
 
 import {
@@ -15,7 +16,6 @@ import {
   Filler,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -136,11 +136,18 @@ const UsageCostlnquiry = () => {
   }, [timePeriod]);
 
   return (
+    // 1. 외부 컨테이너: 페이지 전체를 감싸고 중앙 정렬을 담당
     <section className={styles.pageContainer}>
+
+      {/* 2. 내부 컨테이너: 실제 콘텐츠를 담고 최대 너비를 가짐 */}
       <div className={styles.contentWrapper}>
+
+        {/* 페이지 헤더: 제목과 버튼 등 */}
         <header className={styles.pageHeader}>
           <h1>챗봇 사용 비용 조회</h1>
         </header>
+
+        
         <div className={styles.mainContent}>
           <h2 className={styles.mainSectionTitle}>총 사용 금액</h2>
           <TotalCostDisplay totalCost={totalCostData} />

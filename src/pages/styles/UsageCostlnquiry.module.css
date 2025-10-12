@@ -1,4 +1,11 @@
+
 /* src/pages/styles/UsageCostlnquiry.module.css */
+
+/*
+1번 부터 3번 까지는 모든 페이지에 적용하는 CSS 문법입니다.
+mainContent 부터는 페이지별 다른 CSS 문법입니다.
+*/
+
 /* 1. 외부 컨테이너 스타일 */
 .pageContainer {
   width: 100%;
@@ -16,18 +23,27 @@
   max-width: 1400px;
 }
 
-
+/* 3. 페이지 헤더 스타일 */
 .pageHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; /* 헤더와 메인 콘텐츠 사이 여백 */
   padding-bottom: 1rem;
   border-bottom: 1px solid #dee2e6;
-}
+} 
 
 .pageHeader h1 {
   margin: 0;
   font-size: 1.75rem;
+}
+
+/* 메인 콘텐츠 영역 스타일 */
+.mainContent {
+  border: 0px solid #e0e0e0; 
+  padding: 0; /* 테이블이 꽉 차도록 패딩 제거 */
+  display: block; /* Flexbox 대신 일반 블록으로 변경 */
+  color: #333; /* 기본 텍스트 색상 변경 */
+  overflow: hidden; /* 모서리 둥글게 할 때 필요 */
 }
 
 /* '총 사용 금액', '기간별 사용 금액' 등 메인 섹션의 제목 */
