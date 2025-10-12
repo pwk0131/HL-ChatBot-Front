@@ -2,7 +2,6 @@
 // src/pages/UsageCostlnquiry.jsx
 
 import { useState, useEffect } from 'react';
-import global_styles from './PageLayout.module.css';
 import styles from './styles/UsageCostlnquiry.module.css';
 
 import {
@@ -137,12 +136,12 @@ const UsageCostlnquiry = () => {
   }, [timePeriod]);
 
   return (
-    <section className={global_styles.pageContainer}>
-      <div className={global_styles.contentWrapper}>
+    <section className={styles.pageContainer}>
+      <div className={styles.contentWrapper}>
         <header className={styles.pageHeader}>
           <h1>챗봇 사용 비용 조회</h1>
         </header>
-        <div className={global_styles.mainContent}>
+        <div className={styles.mainContent}>
           <h2 className={styles.mainSectionTitle}>총 사용 금액</h2>
           <TotalCostDisplay totalCost={totalCostData} />
 

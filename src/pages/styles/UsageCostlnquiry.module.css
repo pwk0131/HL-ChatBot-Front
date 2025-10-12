@@ -1,4 +1,21 @@
 /* src/pages/styles/UsageCostlnquiry.module.css */
+/* 1. 외부 컨테이너 스타일 */
+.pageContainer {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  
+  /* Flexbox를 이용해 내부 컨테이너를 수평 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+}
+
+/* 2. 내부 컨테이너 스타일 */
+.contentWrapper {
+  width: 100%;
+  max-width: 1400px;
+}
+
 
 .pageHeader {
   display: flex;
