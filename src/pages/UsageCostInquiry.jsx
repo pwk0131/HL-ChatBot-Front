@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import styles from './styles/UsageCostlnquiry.module.css';
-
 import { getCosts } from '../services/cost';
 
 import {
@@ -15,7 +14,6 @@ ChartJS.register(
 );
 
 // --- 정적 목업 데이터 ---
-const totalCostData = 1250.75;
 const staticEstimatedCost = { total: 480.0, points: [
   { time: '09-13', value: 30 }, { time: '09-18', value: 45 }, { time: '09-23', value: 40 },
   { time: '09-28', value: 60 }, { time: '10-03', value: 80 }, { time: '10-08', value: 70 },
@@ -26,7 +24,7 @@ const staticEstimatedCost = { total: 480.0, points: [
 const TotalCostDisplay = ({ totalCost }) => (
   <div className={styles.totalCostContainer}>
     <h2>총 사용 금액</h2>
-    <p>${totalCost.toFixed(2)}</p>
+    <p>${totalCost.toLocaleString()}</p>
   </div>
 );
 
@@ -113,6 +111,7 @@ const ChartComponent = ({ label, total, dataPoints = [], color, loading }) => {
 
 const UsageCostlnquiry = () => {
   const [timePeriod, setTimePeriod] = useState('week');
+  const [totalCost, setTotalCost] = useState(0);
   const [llmData, setLlmData] = useState({ total: 0, points: [] });
   const [serverData, setServerData] = useState({ total: 0, points: [] });
   const [dbData, setDbData] = useState({ total: 0, points: [] });
@@ -122,10 +121,13 @@ const UsageCostlnquiry = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const allCosts = await getCosts({ period: timePeriod });
-        setLlmData(allCosts.llm);
-        setServerData(allCosts.server);
-        setDbData(allCosts.db);
+        const response = await getCosts({ period: timePeriod });
+        
+        setTotalCost(response.grandTotal);
+        setLlmData(response.periodCosts.llm);
+        setServerData(response.periodCosts.server);
+        setDbData(response.periodCosts.db);
+
       } catch (error) {
         console.error("비용 데이터를 가져오는 데 실패했습니다:", error);
       } finally {
@@ -149,7 +151,7 @@ const UsageCostlnquiry = () => {
         </header>
         <div className={styles.mainContent}>
           <h2 className={styles.mainSectionTitle}>총 사용 금액</h2>
-          <TotalCostDisplay totalCost={totalCostData} />
+          <TotalCostDisplay totalCost={totalCost} />
 
           <h2 className={styles.mainSectionTitle}>기간별 사용 금액</h2>
           <div className={styles.filterableSection}>
