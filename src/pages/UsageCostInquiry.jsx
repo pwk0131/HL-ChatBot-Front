@@ -13,13 +13,6 @@ ChartJS.register(
   CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend
 );
 
-// --- 정적 목업 데이터 ---
-const staticEstimatedCost = { total: 480.0, points: [
-  { time: '09-13', value: 30 }, { time: '09-18', value: 45 }, { time: '09-23', value: 40 },
-  { time: '09-28', value: 60 }, { time: '10-03', value: 80 }, { time: '10-08', value: 70 },
-]};
-
-
 // --- 컴포넌트 ---
 const TotalCostDisplay = ({ totalCost }) => (
   <div className={styles.totalCostContainer}>
@@ -115,6 +108,7 @@ const UsageCostlnquiry = () => {
   const [llmData, setLlmData] = useState({ total: 0, points: [] });
   const [serverData, setServerData] = useState({ total: 0, points: [] });
   const [dbData, setDbData] = useState({ total: 0, points: [] });
+  const [estimatedCost, setEstimatedCost] = useState({ total: 0, points: [] });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -123,10 +117,11 @@ const UsageCostlnquiry = () => {
       try {
         const response = await getCosts({ period: timePeriod });
         
-        setTotalCost(response.grandTotal);
-        setLlmData(response.periodCosts.llm);
-        setServerData(response.periodCosts.server);
-        setDbData(response.periodCosts.db);
+        setTotalCost(response.grandTotal || 0);
+        setLlmData(response.periodCosts?.llm || { total: 0, points: [] });
+        setServerData(response.periodCosts?.server || { total: 0, points: [] });
+        setDbData(response.periodCosts?.db || { total: 0, points: [] });
+        setEstimatedCost(response.estimatedMonthlyCost || { total: 0, points: [] });
 
       } catch (error) {
         console.error("비용 데이터를 가져오는 데 실패했습니다:", error);
@@ -183,7 +178,7 @@ const UsageCostlnquiry = () => {
 
           <div className={styles.chartSection}>
             <h2 className={styles.mainSectionTitle}>비용 분석</h2>
-            <ChartComponent label="예상 비용" total={staticEstimatedCost.total} dataPoints={staticEstimatedCost.points} color="#e03131" loading={false} />
+            <ChartComponent label="월 예상 비용" total={estimatedCost.total} dataPoints={estimatedCost.points} color="#e03131" loading={loading} />
           </div>
         </div>
       </div>
