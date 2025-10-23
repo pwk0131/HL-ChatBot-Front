@@ -3,7 +3,7 @@
 import apiClient from './apiClient';
 import { getMockCostData } from './test_data/cost_data';
 
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = false;
 
 /**
  * 기간별 모든 비용 데이터를 한 번에 가져오는 함수

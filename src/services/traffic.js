@@ -2,7 +2,7 @@ import apiClient from './apiClient';
 import { getMockTrafficData } from './test_data/traffic_data';
 
 // Mock 데이터 사용 여부를 결정하는 변수
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = false;
 
 /**
  * 기간별 질문 수 데이터를 가져오는 API 함수
